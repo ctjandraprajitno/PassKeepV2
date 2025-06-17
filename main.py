@@ -1,0 +1,60 @@
+#libraries
+from dataclasses import dataclass, field
+from datetime import datetime
+from random import randint
+
+#class def
+
+class Password:
+  def __init__(self, site, site_id, site_pass):
+    self.site = site
+    self.site_id = site_id
+    self.site_pass = site_pass
+    self.last_update = datetime.now()
+
+  def update_pass(self, new_pass):
+    self.site_pass = new_pass
+    self.last_update = datetime.now()
+
+@dataclass
+class User:
+  id: str
+  email: str
+  passwords: list[Password] = field(default_factory=list)
+
+  def add_pass(self, password):
+    self.passwords.append(password)
+
+  def remove_pass(self, password):
+    self.passwords.remove(password)
+
+user = User('kuroro', 'kuro@gmail.com')
+pw1 = Password("Twitch", 'kuroro@gmail.com', 'password123')
+
+user.add_pass(pw1)
+
+print(user.passwords[0].site)
+
+#func def
+
+#password generator
+def pw_generator(pw, keyword):
+    pw = '' #reset password 
+    for letter in keyword:
+        replaced = 0 #reset tracker to start replacing if valid
+        for key in replacements:
+            if letter == key:
+                pw += replacements[key]
+                replaced = 1 #changed tracker to true if the letter is replaced using replacement dict
+                continue
+        if not replaced:
+            #randomizer to change letter to upper case or lower case
+            upper_or_lower = random.randint(1, 2)
+            if upper_or_lower == 1:
+                pw += letter.upper()
+            else:
+                pw += letter.lower()
+            continue
+                
+    return pw
+
