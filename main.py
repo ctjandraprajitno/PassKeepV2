@@ -28,13 +28,6 @@ class User:
   def remove_pass(self, password):
     self.passwords.remove(password)
 
-user = User('kuroro', 'kuro@gmail.com')
-pw1 = Password("Twitch", 'kuroro@gmail.com', 'password123')
-
-user.add_pass(pw1)
-
-print(user.passwords[0].site)
-
 #func def
 
 #password generator
@@ -58,3 +51,13 @@ def pw_generator(pw, keyword):
                 
     return pw
 
+'''
+test case
+
+user = User('kuroro', 'kuro@gmail.com')
+pw1 = Password("Twitch", 'kuroro@gmail.com', 'password123')
+
+user.add_pass(pw1)
+
+print(user.passwords[0].site)
+'''
