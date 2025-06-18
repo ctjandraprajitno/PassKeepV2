@@ -3,8 +3,19 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from random import randint
 
-#class def
+#data
+replacements = {'a': '@'
+                , 'b': '8'
+                , 'e': '3'
+                , 'g': '9'
+                , 'i': '!'
+                , 'l': '1'
+                , 'o': '0'
+                , 's': '$'
+                , 't': '7'
+                , 'z': '2'}
 
+#class def
 class Password:
   def __init__(self, site, site_id, site_pass):
     self.site = site
@@ -29,7 +40,6 @@ class User:
     self.passwords.remove(password)
 
 #func def
-
 #password generator
 def pw_generator(pw, keyword):
     pw = '' #reset password 

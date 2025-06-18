@@ -1,6 +1,6 @@
 """
 Project Title: PassKeep
-note:
+note for V2:
 - improve password generator
 - use classes so every user have their own obj
 - use API to make additional feature (generate pass without keyword)
