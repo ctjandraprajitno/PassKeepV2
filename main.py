@@ -2,7 +2,7 @@
 from dataclasses import dataclass, field
 from datetime import datetime
 from random import randint
-
+print(type(str(datetime.now())))
 #data
 replacements = {'a': '@'
                 , 'b': '8'
@@ -16,12 +16,12 @@ replacements = {'a': '@'
                 , 'z': '2'}
 
 #class def
+@dataclass
 class Password:
-  def __init__(self, site, site_id, site_pass):
-    self.site = site
-    self.site_id = site_id
-    self.site_pass = site_pass
-    self.last_update = datetime.now()
+  site: str
+  site_id: str
+  site_pass: str
+  last_update = datetime.now()
 
   def update_pass(self, new_pass):
     self.site_pass = new_pass
