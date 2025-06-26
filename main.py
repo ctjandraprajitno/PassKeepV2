@@ -2,7 +2,7 @@
 from dataclasses import dataclass, field
 from datetime import datetime
 from random import randint
-print(type(str(datetime.now())))
+
 #data
 replacements = {'a': '@'
                 , 'b': '8'
@@ -21,7 +21,7 @@ class Password:
   site: str
   site_id: str
   site_pass: str
-  last_update = datetime.now()
+  last_update:str = (datetime.now())
 
   def update_pass(self, new_pass):
     self.site_pass = new_pass
@@ -61,8 +61,8 @@ def pw_generator(pw, keyword):
                 
     return pw
 
-'''
-test case
+
+#test case
 
 user = User('kuroro', 'kuro@gmail.com')
 pw1 = Password("Twitch", 'kuroro@gmail.com', 'password123')
@@ -70,4 +70,3 @@ pw1 = Password("Twitch", 'kuroro@gmail.com', 'password123')
 user.add_pass(pw1)
 
 print(user.passwords[0].site)
-'''
