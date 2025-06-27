@@ -5,21 +5,33 @@ from dataclasses import dataclass
 class Dog:
   sound: str = 'bark'
 
+  def speak(self):
+    print(self.sound)
+
 class Cat:
   def __init__(self):
     self.sound = 'meow'
 
-# data = [Cat(), Dog()]
+@dataclass
+class Frog:
+  sound: str = 'ribbit'
+
+# data = [Cat(), Dog(), Frog()]
 
 # with open('test.pkl', 'wb') as f:
 #   pickle.dump(data, f)
 
 with open('test.pkl', 'rb') as f:
-  car = pickle.load(f)[0]
-  dogi = pickle.load(f)[1]
-  # data = pickle.load(f)
+  data = pickle.load(f)
 
-# print(data)
+print(data)
+
+car = data[0]
+dogi = data[1]
+fro = data[2]
 
 print(car.sound)
 print(dogi.sound)
+print(fro.sound)
+
+dogi.speak()
